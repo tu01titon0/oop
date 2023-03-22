@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<htmL>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <canvas id="DemoCanvas" width="500" height="600"></canvas>
+</body>
+<script>
+    class Phone {
+        name;
+        pin;
+        ramSent;
+        ramInbox;
+        ramDraft;
+        isTurnOn;
+        constructor(name){
+            this.name = name;
+            this.pin = 100;
+            this.ramDraft = '';
+            this.ramInbox = [];
+            this.ramSent = [];
+            this.isTurnOn = false;
+
+        }
+        getPhoneStatus(){
+            if (isTurnOn) {
+                return 'phone on'
+            } else {
+                return 'phone off'
+            }
+        }
+
+        turnOnOff(){
+            if (!this.isTurnOn){
+                this.isTurnOn = true
+                return 'phone on'
+            } else {
+                this.isTurnOn = false;
+                return ' phone off '
+            }
+        }
+
+        chargeBattery(){
+            if (this.pin == 100) {
+                return 'full battery'
+            } else {
+                this.pin++;
+                return 'charging'
+            }
+        }
+
+        setDraffInbox(input){
+            if (this.isTurnOn = true) {
+                this.ramDraft = input
+                this.pin--
+                return('save draft')
+            } else {
+                return('phone off')
+            }
+        }
+
+        receiveMessage(message){
+            if (this.isTurnOn = true) {
+                this.ramInbox.push(message)
+                this.pin--;
+                return 'receive success';
+            } else {
+                return('phone off');
+            }
+        }
+
+
+        sendMessage(obj_phone, message) {
+            if (this.isTurnOn = true) {
+                obj_phone.receiveMessage(message);
+                this.ramSent.push(message);
+                this.pin--;
+                return 'send success';
+            } else {
+                return('phone off');
+            }
+        }
+
+        getRamInbox() {
+            if (this.isTurnOn = true) {
+                this.pin--;
+                return this.ramInbox;
+            } else {
+                return('phone off');
+            }
+        }
+
+        getRamSent(){
+            if (this.isTurnOn = true) {
+                this.pin--;
+                return this.ramSent;
+            } else {
+                return('phone off');
+            }
+        }
+    }
+    
+    let iphone = new Phone('iphone')
+    let nokia = new Phone('nokia')
+    nokia.sendMessage(iphone, prompt('nhap tin nhan muon gui cho iphone'))
+</script>
+
+
+</script>
+</htmL>
