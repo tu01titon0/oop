@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<htmL>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <canvas id="DemoCanvas" width="500" height="600"></canvas>
+</body>
+<script>
+    class Temperature {
+        c;
+        constructor(c){
+            this.c = c;
+        }
+        getF(){
+            return (9/5)*this.c + 32;
+        }
+        getKenvin(){
+            return this.c + 273.15;
+        }
+    }
+    
+    let new_temp = new Temperature(+prompt("Nhap do c"))
+    alert('do f:' + new_temp.getF() + 'do kevin:' + new_temp.getKenvin())
+</script>
+
+
+</script>
+</htmL>
